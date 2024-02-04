@@ -29,7 +29,7 @@ const HomePage = () => {
             <div className="custom_div_blk custom_bd_rad10 custom_d_flex custom_jt_cont_betw custom_alg_itm_start custom_sb_bg_clr custom_p20">
               <div className="custom_d_flex custom_flex_col">
                 <label className="custom_lbl custom_fw_md text_withe">Total Class</label>
-                <label className="custom_lbl custom_fs21 custom_fw_md text_withe">{dashboardData?.data?.total_teacher}</label>
+                <label className="custom_lbl custom_fs21 custom_fw_md text_withe">{dashboardData?.data?.total_class}</label>
               </div>
             </div>
           </div>

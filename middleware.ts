@@ -15,5 +15,6 @@ export const config = {
         "/",
         "/teachers",
         "/students",
+        "/classes",
     ]
 }
