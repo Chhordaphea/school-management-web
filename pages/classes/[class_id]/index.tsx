@@ -8,6 +8,7 @@ import classService from '@/service/class.service'
 import { DateFormat } from '@/utils/dateformat';
 import { useQueries, useQuery } from '@tanstack/react-query'
 import { ColumnDef } from '@tanstack/react-table';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 
 const defaultColumn: ColumnDef<Teacher>[] = [
@@ -76,23 +77,30 @@ const defaultColumn: ColumnDef<Teacher>[] = [
 
 
 const ClassInfo = () => {
+    const router = useRouter();
 
     const { data: teacherClass, isError: er, isLoading: is } = useQuery(
         ['teacherClass'],
-        async () => await classService.getTeacherClass(3));
+        async () => await classService.getTeacherClass(router?.query?.class_id));
 
 
     const { data: studentClass, isError: e, isLoading: l } = useQuery(
         ['studentClass'],
-        async () => await classService.getStudentClass(3));
+        async () => await classService.getStudentClass(router?.query?.class_id));
 
     const [showTeacher, setShowTeacher] = useState(true);
     const [showStudent, setShowStudent] = useState(false);
 
-    if (er || e) {
+    if (er) {
         return <div></div>
     }
-    if (is || l) {
+    if (is) {
+        return <div></div>
+    }
+    if (e) {
+        return <div></div>
+    }
+    if (l) {
         return <div></div>
     }
 
